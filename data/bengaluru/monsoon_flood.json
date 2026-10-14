@@ -1,0 +1,57 @@
+{
+  "$comment": "Low-lying roads that tend to flood in heavy rain. Seed list from public reporting of past monsoons; not field-checked. Active only inside active_months (1-12), June to October by default. penalty_min is risk, applied with the flood weight.",
+  "last_verified": "2026-10-13",
+  "verification": "seed",
+  "active_months": [6, 7, 8, 9, 10],
+  "items": [
+    {
+      "id": "flood-orr-ecospace",
+      "name": "Outer Ring Road near Ecospace, Bellandur",
+      "center": [77.681, 12.927],
+      "radius_m": 450,
+      "penalty_min": 12
+    },
+    {
+      "id": "flood-yemalur",
+      "name": "Yemalur main road",
+      "center": [77.688, 12.948],
+      "radius_m": 400,
+      "penalty_min": 10
+    },
+    {
+      "id": "flood-silk-board",
+      "name": "Silk Board junction underpass approaches",
+      "center": [77.6229, 12.9172],
+      "radius_m": 400,
+      "penalty_min": 10
+    },
+    {
+      "id": "flood-koramangala-ejipura",
+      "name": "Koramangala and Ejipura low roads",
+      "center": [77.624, 12.942],
+      "radius_m": 500,
+      "penalty_min": 8
+    },
+    {
+      "id": "flood-hebbal",
+      "name": "Hebbal flyover service roads",
+      "center": [77.597, 13.0358],
+      "radius_m": 400,
+      "penalty_min": 8
+    },
+    {
+      "id": "flood-sarjapur-rainbow",
+      "name": "Sarjapur Road near Rainbow Drive",
+      "center": [77.695, 12.9075],
+      "radius_m": 400,
+      "penalty_min": 9
+    },
+    {
+      "id": "flood-mahadevapura",
+      "name": "Mahadevapura, Outer Ring Road",
+      "center": [77.6871, 12.9916],
+      "radius_m": 450,
+      "penalty_min": 8
+    }
+  ]
+}

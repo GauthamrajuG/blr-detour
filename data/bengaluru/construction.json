@@ -1,0 +1,51 @@
+{
+  "$comment": "Road works and metro construction that slow traffic. Updated by hand. Seed entries come from general knowledge as of mid-2026 and have NOT been field-checked; status may have changed. Do not treat as live closure data. delay_min is added as risk, not as travel time.",
+  "last_verified": "2026-10-13",
+  "verification": "seed",
+  "items": [
+    {
+      "id": "metro-blue-orr",
+      "name": "Metro works on Outer Ring Road",
+      "kind": "metro",
+      "line": [
+        [77.6229, 12.9172],
+        [77.644, 12.9255],
+        [77.6783, 12.9265],
+        [77.6966, 12.9363],
+        [77.7011, 12.9569],
+        [77.6955, 13.0072]
+      ],
+      "radius_m": 250,
+      "delay_min": 5,
+      "closure": false,
+      "last_verified": "2026-10-13",
+      "detail": "Namma Metro Blue Line (Silk Board to KR Puram) construction along the Outer Ring Road."
+    },
+    {
+      "id": "metro-blue-airport",
+      "name": "Metro works, Hebbal to airport",
+      "kind": "metro",
+      "line": [
+        [77.597, 13.0358],
+        [77.602, 13.07],
+        [77.607, 13.1]
+      ],
+      "radius_m": 250,
+      "delay_min": 4,
+      "closure": false,
+      "last_verified": "2026-10-13",
+      "detail": "Namma Metro Blue Line (Phase 2B) construction along the Hebbal to airport corridor."
+    },
+    {
+      "id": "sarjapur-widening",
+      "name": "Drain works near Wipro junction, Sarjapur Road",
+      "kind": "road",
+      "center": [77.685, 12.9095],
+      "radius_m": 500,
+      "delay_min": 4,
+      "closure": false,
+      "last_verified": "2026-10-13",
+      "detail": "Road and storm-water drain works near Wipro junction."
+    }
+  ]
+}

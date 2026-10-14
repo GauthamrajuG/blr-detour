@@ -1,0 +1,434 @@
+{
+  "$comment": "Demo gazetteer. Used by the mock geocoder and the mock route provider. Coordinates are approximate locality centres from general knowledge.",
+  "places": [
+    {
+      "id": "koramangala",
+      "name": "Koramangala",
+      "lat": 12.9352,
+      "lng": 77.6245
+    },
+    {
+      "id": "indiranagar",
+      "name": "Indiranagar",
+      "lat": 12.9719,
+      "lng": 77.6412
+    },
+    {
+      "id": "hsr-layout",
+      "name": "HSR Layout",
+      "lat": 12.9116,
+      "lng": 77.6389
+    },
+    {
+      "id": "whitefield",
+      "name": "Whitefield",
+      "lat": 12.9698,
+      "lng": 77.75
+    },
+    {
+      "id": "electronic-city",
+      "name": "Electronic City",
+      "lat": 12.8452,
+      "lng": 77.6602
+    },
+    {
+      "id": "hebbal",
+      "name": "Hebbal",
+      "lat": 13.0358,
+      "lng": 77.597
+    },
+    {
+      "id": "manyata-tech-park",
+      "name": "Manyata Tech Park",
+      "lat": 13.0475,
+      "lng": 77.621
+    },
+    {
+      "id": "bellandur",
+      "name": "Bellandur",
+      "lat": 12.9304,
+      "lng": 77.6784
+    },
+    {
+      "id": "marathahalli",
+      "name": "Marathahalli",
+      "lat": 12.9591,
+      "lng": 77.6974
+    },
+    {
+      "id": "jayanagar",
+      "name": "Jayanagar",
+      "lat": 12.925,
+      "lng": 77.5938
+    },
+    {
+      "id": "mg-road",
+      "name": "MG Road",
+      "lat": 12.9756,
+      "lng": 77.6066
+    },
+    {
+      "id": "majestic",
+      "name": "Majestic",
+      "lat": 12.9767,
+      "lng": 77.5713
+    },
+    {
+      "id": "yelahanka",
+      "name": "Yelahanka",
+      "lat": 13.1007,
+      "lng": 77.5963
+    },
+    {
+      "id": "kempegowda-airport",
+      "name": "Kempegowda Airport",
+      "lat": 13.1986,
+      "lng": 77.7066
+    },
+    {
+      "id": "btm-layout",
+      "name": "BTM Layout",
+      "lat": 12.9166,
+      "lng": 77.6101
+    },
+    {
+      "id": "jp-nagar",
+      "name": "JP Nagar",
+      "lat": 12.9063,
+      "lng": 77.5857
+    },
+    {
+      "id": "malleshwaram",
+      "name": "Malleshwaram",
+      "lat": 13.0031,
+      "lng": 77.5643
+    },
+    {
+      "id": "sarjapur",
+      "name": "Sarjapur",
+      "lat": 12.86,
+      "lng": 77.786
+    },
+    {
+      "id": "bannerghatta-road",
+      "name": "Bannerghatta Road",
+      "lat": 12.8763,
+      "lng": 77.5953
+    },
+    {
+      "id": "kr-puram",
+      "name": "KR Puram",
+      "lat": 13.0072,
+      "lng": 77.6955
+    },
+    {
+      "id": "banashankari",
+      "name": "Banashankari",
+      "lat": 12.9255,
+      "lng": 77.5468
+    },
+    {
+      "id": "yeshwanthpur",
+      "name": "Yeshwanthpur",
+      "lat": 13.0285,
+      "lng": 77.5409
+    },
+    {
+      "id": "hennur",
+      "name": "Hennur",
+      "lat": 13.0358,
+      "lng": 77.64
+    },
+    {
+      "id": "domlur",
+      "name": "Domlur",
+      "lat": 12.961,
+      "lng": 77.6387
+    },
+    {
+      "id": "ulsoor",
+      "name": "Ulsoor",
+      "lat": 12.9817,
+      "lng": 77.6286
+    },
+    {
+      "id": "rt-nagar",
+      "name": "RT Nagar",
+      "lat": 13.0213,
+      "lng": 77.5955
+    },
+    {
+      "id": "kalyan-nagar",
+      "name": "Kalyan Nagar",
+      "lat": 13.028,
+      "lng": 77.64
+    },
+    {
+      "id": "brookefield",
+      "name": "Brookefield",
+      "lat": 12.9653,
+      "lng": 77.7173
+    },
+    {
+      "id": "itpl",
+      "name": "ITPL",
+      "lat": 12.9857,
+      "lng": 77.7363
+    },
+    {
+      "id": "mahadevapura",
+      "name": "Mahadevapura",
+      "lat": 12.9916,
+      "lng": 77.6871
+    },
+    {
+      "id": "basavanagudi",
+      "name": "Basavanagudi",
+      "lat": 12.9422,
+      "lng": 77.5755
+    },
+    {
+      "id": "rajajinagar",
+      "name": "Rajajinagar",
+      "lat": 12.991,
+      "lng": 77.552
+    },
+    {
+      "id": "silk-board",
+      "name": "Silk Board",
+      "lat": 12.9172,
+      "lng": 77.6229
+    },
+    {
+      "id": "ecospace-bellandur",
+      "name": "Ecospace, Bellandur",
+      "lat": 12.9265,
+      "lng": 77.68
+    },
+    {
+      "id": "embassy-golf-links",
+      "name": "Embassy Golf Links",
+      "lat": 12.9533,
+      "lng": 77.643
+    },
+    {
+      "id": "kadubeesanahalli",
+      "name": "Kadubeesanahalli",
+      "lat": 12.9363,
+      "lng": 77.6966
+    },
+    {
+      "id": "bommanahalli",
+      "name": "Bommanahalli",
+      "lat": 12.902,
+      "lng": 77.624
+    },
+    {
+      "id": "kundalahalli",
+      "name": "Kundalahalli",
+      "lat": 12.9655,
+      "lng": 77.716
+    },
+    {
+      "id": "thanisandra",
+      "name": "Thanisandra",
+      "lat": 13.056,
+      "lng": 77.633
+    },
+    {
+      "id": "vijayanagar",
+      "name": "Vijayanagar",
+      "lat": 12.9719,
+      "lng": 77.5371
+    },
+    {
+      "id": "cubbon-park",
+      "name": "Cubbon Park",
+      "lat": 12.9763,
+      "lng": 77.5929
+    },
+    {
+      "id": "bagmane-tech-park",
+      "name": "Bagmane Tech Park",
+      "lat": 12.98,
+      "lng": 77.662
+    }
+  ],
+  "vias": [
+    {
+      "id": "hosur-road",
+      "road": "Hosur Road",
+      "road_class": "highway",
+      "lat": 12.902,
+      "lng": 77.625
+    },
+    {
+      "id": "irr-ejipura",
+      "road": "Inner Ring Road",
+      "road_class": "arterial",
+      "lat": 12.9455,
+      "lng": 77.63
+    },
+    {
+      "id": "orr-bellandur",
+      "road": "Outer Ring Road",
+      "road_class": "orr",
+      "lat": 12.9265,
+      "lng": 77.67
+    },
+    {
+      "id": "orr-north",
+      "road": "Outer Ring Road (north)",
+      "road_class": "orr",
+      "lat": 13.03,
+      "lng": 77.645
+    },
+    {
+      "id": "orr-east",
+      "road": "Outer Ring Road (Mahadevapura)",
+      "road_class": "orr",
+      "lat": 12.985,
+      "lng": 77.693
+    },
+    {
+      "id": "sarjapur-road",
+      "road": "Sarjapur Road",
+      "road_class": "arterial",
+      "lat": 12.9095,
+      "lng": 77.685
+    },
+    {
+      "id": "old-airport-road",
+      "road": "Old Airport Road",
+      "road_class": "arterial",
+      "lat": 12.9592,
+      "lng": 77.665
+    },
+    {
+      "id": "old-madras-road",
+      "road": "Old Madras Road",
+      "road_class": "arterial",
+      "lat": 12.9925,
+      "lng": 77.656
+    },
+    {
+      "id": "hennur-road",
+      "road": "Hennur Main Road",
+      "road_class": "arterial",
+      "lat": 13.03,
+      "lng": 77.638
+    },
+    {
+      "id": "bellary-road",
+      "road": "Bellary Road",
+      "road_class": "highway",
+      "lat": 13.0145,
+      "lng": 77.5835
+    },
+    {
+      "id": "bannerghatta-road",
+      "road": "Bannerghatta Road",
+      "road_class": "arterial",
+      "lat": 12.9,
+      "lng": 77.599
+    },
+    {
+      "id": "kanakapura-road",
+      "road": "Kanakapura Road",
+      "road_class": "arterial",
+      "lat": 12.89,
+      "lng": 77.57
+    },
+    {
+      "id": "thanisandra-road",
+      "road": "Thanisandra Main Road",
+      "road_class": "arterial",
+      "lat": 13.056,
+      "lng": 77.633
+    },
+    {
+      "id": "varthur-road",
+      "road": "Varthur Road",
+      "road_class": "arterial",
+      "lat": 12.9395,
+      "lng": 77.73
+    },
+    {
+      "id": "haralur-road",
+      "road": "Haralur Road",
+      "road_class": "residential",
+      "lat": 12.905,
+      "lng": 77.662
+    },
+    {
+      "id": "hsr-27th-main",
+      "road": "HSR 27th Main",
+      "road_class": "residential",
+      "lat": 12.915,
+      "lng": 77.65
+    },
+    {
+      "id": "ecity-elevated",
+      "road": "Electronic City Elevated Expressway",
+      "road_class": "highway",
+      "lat": 12.88,
+      "lng": 77.645
+    },
+    {
+      "id": "begur-road",
+      "road": "Begur Road",
+      "road_class": "residential",
+      "lat": 12.885,
+      "lng": 77.625
+    },
+    {
+      "id": "mysore-road",
+      "road": "Mysore Road",
+      "road_class": "arterial",
+      "lat": 12.955,
+      "lng": 77.535
+    },
+    {
+      "id": "tumkur-road",
+      "road": "Tumkur Road",
+      "road_class": "highway",
+      "lat": 13.035,
+      "lng": 77.525
+    },
+    {
+      "id": "cv-raman-nagar",
+      "road": "Suranjan Das Road",
+      "road_class": "residential",
+      "lat": 12.978,
+      "lng": 77.667
+    },
+    {
+      "id": "koramangala-80ft",
+      "road": "Koramangala 80 Feet Road",
+      "road_class": "residential",
+      "lat": 12.933,
+      "lng": 77.629
+    },
+    {
+      "id": "airport-road",
+      "road": "Airport Road (NH 44)",
+      "road_class": "highway",
+      "lat": 13.1,
+      "lng": 77.6
+    },
+    {
+      "id": "hennur-bagalur",
+      "road": "Hennur–Bagalur Road",
+      "road_class": "arterial",
+      "lat": 13.1,
+      "lng": 77.66
+    },
+    {
+      "id": "whitefield-main",
+      "road": "Whitefield Main Road",
+      "road_class": "arterial",
+      "lat": 12.98,
+      "lng": 77.725
+    }
+  ]
+}

@@ -1,0 +1,357 @@
+@import "tailwindcss";
+
+/*
+ * Tokens. See DESIGN.md for why each exists.
+ * Neutrals are tinted toward asphalt green; nothing is pure black, white, or gray.
+ */
+:root {
+  --paper: #f4f7f4;
+  --paper-raised: #fbfcfa;
+  --paper-sunk: #e6ece7;
+  --ink: #13201b;
+  --ink-soft: #43534c;
+  --rule: #cdd7d0;
+  --signboard: #0d6a46;
+  --signboard-ink: #f4f7f4;
+  --signboard-wash: #dcebe2;
+  --kerb: #f2c230;
+  --kerb-ink: #13201b;
+  --flood: #2b5c9c;
+  --brick: #a33820;
+  --focus: #0d6a46;
+  --route-muted: #7f938a;
+  --map-bg: #e3e9e4;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur-press: 160ms;
+  --dur-expand: 200ms;
+  --dur-move: 260ms;
+  --dur-sheet: 320ms;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #101a16;
+    --paper-raised: #16231e;
+    --paper-sunk: #0b1310;
+    --ink: #e4ede8;
+    --ink-soft: #a7b6ae;
+    --rule: #2c3b34;
+    --signboard: #46c08a;
+    --signboard-ink: #0b1310;
+    --signboard-wash: #173328;
+    --flood: #7fa9e3;
+    --brick: #f08a6e;
+    --focus: #46c08a;
+    --route-muted: #6d8178;
+    --map-bg: #17221d;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-paper-sunk: var(--paper-sunk);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-rule: var(--rule);
+  --color-signboard: var(--signboard);
+  --color-signboard-ink: var(--signboard-ink);
+  --color-signboard-wash: var(--signboard-wash);
+  --color-kerb: var(--kerb);
+  --color-kerb-ink: var(--kerb-ink);
+  --color-flood: var(--flood);
+  --color-brick: var(--brick);
+  --font-sans: var(--font-atkinson), "Noto Sans Kannada", system-ui, sans-serif;
+
+  /* Fixed rem scale, ratio ~1.2 (13/15/17/20/24/34 px). */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2.125rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Browser surfaces carry the design too. */
+::selection {
+  background: var(--kerb);
+  color: var(--kerb-ink);
+}
+input {
+  caret-color: var(--signboard);
+}
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+* {
+  scrollbar-color: var(--rule) transparent;
+}
+
+/* ---------- Press feedback (Emil: 100-160ms, scale 0.97) ---------- */
+.pressable {
+  transition:
+    transform var(--dur-press) var(--ease-out),
+    background-color 150ms ease,
+    border-color 150ms ease;
+}
+.pressable:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Departure chips (native radios) ---------- */
+.chip {
+  position: relative;
+}
+.chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.chip span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.95rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--rule);
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
+}
+.chip input:checked + span {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.chip input:focus-visible + span {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ---------- Jam strip: the one bold device ---------- */
+.jam-strip {
+  position: relative;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--paper-sunk);
+  overflow: hidden;
+}
+.jam-strip__route {
+  position: absolute;
+  inset: 4px 0;
+  background: var(--route-muted);
+  border-radius: 2px;
+  transition: background-color 200ms var(--ease-out);
+}
+[data-selected="true"] .jam-strip__route {
+  background: var(--signboard);
+}
+.jam-strip__mark {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  min-width: 14px;
+  border-radius: 2px;
+}
+/* Painted kerb stripes: yellow and ink, as on Bengaluru junction kerbs. */
+.jam-strip__mark--peak {
+  background: repeating-linear-gradient(-45deg, var(--kerb) 0 4px, var(--kerb-ink) 4px 8px);
+}
+.jam-strip__mark--quiet {
+  background: repeating-linear-gradient(-45deg, var(--kerb) 0 3px, transparent 3px 8px);
+  box-shadow: inset 0 0 0 1.5px var(--kerb);
+}
+.jam-strip__mark--flood {
+  top: 3px;
+  bottom: 3px;
+  min-width: 10px;
+  background: var(--flood);
+}
+
+/* ---------- Route cards ---------- */
+.route-card {
+  position: relative;
+  border-radius: 14px;
+  border: 1.5px solid transparent;
+  transition:
+    background-color 200ms var(--ease-out),
+    border-color 200ms var(--ease-out);
+}
+.route-card[data-selected="true"] {
+  background: var(--signboard-wash);
+  border-color: var(--signboard);
+}
+@media (hover: hover) and (pointer: fine) {
+  .route-card[data-selected="false"]:hover {
+    background: var(--paper-sunk);
+  }
+}
+
+/* Steps open in place: grid rows 0fr -> 1fr, no height measuring. */
+.expand {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-expand) var(--ease-out);
+}
+.expand[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+.expand > div {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ---------- Range sliders ---------- */
+.slider {
+  appearance: none;
+  width: 100%;
+  height: 44px;
+  background: transparent;
+  cursor: pointer;
+}
+.slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, var(--signboard) 0 var(--fill, 50%), var(--rule) var(--fill, 50%) 100%);
+}
+.slider::-moz-range-track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--rule);
+}
+.slider::-moz-range-progress {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--signboard);
+}
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  margin-top: -10px;
+  border-radius: 50%;
+  background: var(--paper-raised);
+  border: 2.5px solid var(--signboard);
+  box-shadow: 0 2px 6px -2px rgb(19 32 27 / 0.4);
+  transition: transform var(--dur-press) var(--ease-out);
+}
+.slider:active::-webkit-slider-thumb {
+  transform: scale(1.12);
+}
+.slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--paper-raised);
+  border: 2.5px solid var(--signboard);
+}
+.slider:focus-visible {
+  outline: none;
+}
+.slider:focus-visible::-webkit-slider-thumb {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.slider:focus-visible::-moz-range-thumb {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* ---------- Skeleton ---------- */
+.skeleton {
+  background: var(--paper-sunk);
+  border-radius: 6px;
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+@keyframes skeleton-pulse {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+/* ---------- Sheet (mobile) / panel (desktop) ---------- */
+.sheet {
+  --sheet-h: 88dvh;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--sheet-h);
+  transform: translateY(calc(var(--sheet-h) - var(--visible, 45dvh)));
+  transition: transform var(--dur-sheet) var(--ease-drawer);
+  will-change: transform;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -8px 28px -12px rgb(19 32 27 / 0.35);
+}
+.sheet[data-dragging="true"] {
+  transition: none;
+}
+@media (min-width: 900px) {
+  .sheet {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    transform: none;
+    border-radius: 0;
+    box-shadow: none;
+    transition: none;
+    will-change: auto;
+  }
+}
+
+/* ---------- Map ---------- */
+.maplibregl-ctrl-attrib {
+  font-size: 11px;
+}
+
+/* ---------- Reduced motion: keep opacity and color, drop movement ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+  .pressable:active {
+    transform: none;
+  }
+  .sheet,
+  .expand {
+    transition: none;
+  }
+  .skeleton {
+    animation: none;
+  }
+}

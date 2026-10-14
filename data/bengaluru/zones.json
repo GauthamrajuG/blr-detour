@@ -1,0 +1,177 @@
+{
+  "$comment": "Named chokepoints. Coordinates and delays are seed values from general knowledge of Bengaluru traffic, not field measurements. verification = 'seed' until someone checks on the ground and sets it to 'field'. Peak windows are local time (IST), weekday. Leave peak_windows empty to inherit profile defaults from profiles.json.",
+  "last_verified": "2026-10-13",
+  "verification": "seed",
+  "zones": [
+    {
+      "id": "silk-board",
+      "name": "Silk Board junction",
+      "kind": "junction",
+      "center": [77.6229, 12.9172],
+      "radius_m": 700,
+      "peak_windows": [
+        ["08:00", "11:00"],
+        ["17:00", "21:30"]
+      ],
+      "typical_delay_min": 18,
+      "variance_min": 10,
+      "junctions": 4,
+      "stop_prone": 3,
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "hebbal-flyover",
+      "name": "Hebbal flyover",
+      "kind": "junction",
+      "center": [77.597, 13.0358],
+      "radius_m": 800,
+      "peak_windows": [
+        ["08:00", "11:00"],
+        ["17:00", "21:00"]
+      ],
+      "typical_delay_min": 15,
+      "variance_min": 9,
+      "junctions": 4,
+      "stop_prone": 3,
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "kr-puram",
+      "name": "KR Puram",
+      "kind": "junction",
+      "center": [77.6955, 13.0072],
+      "radius_m": 700,
+      "peak_windows": [],
+      "typical_delay_min": 12,
+      "variance_min": 7,
+      "junctions": 3,
+      "stop_prone": 2,
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "marathahalli-bridge",
+      "name": "Marathahalli bridge",
+      "kind": "junction",
+      "center": [77.7011, 12.9569],
+      "radius_m": 600,
+      "peak_windows": [],
+      "typical_delay_min": 12,
+      "variance_min": 7,
+      "junctions": 3,
+      "stop_prone": 2,
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "sony-world",
+      "name": "Sony World junction",
+      "kind": "junction",
+      "center": [77.6265, 12.9367],
+      "radius_m": 450,
+      "peak_windows": [],
+      "typical_delay_min": 7,
+      "variance_min": 4,
+      "junctions": 2,
+      "stop_prone": 2,
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "ejipura",
+      "name": "Ejipura",
+      "kind": "junction",
+      "center": [77.6301, 12.9459],
+      "radius_m": 500,
+      "peak_windows": [],
+      "typical_delay_min": 8,
+      "variance_min": 5,
+      "junctions": 2,
+      "stop_prone": 2,
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "tin-factory",
+      "name": "Tin Factory",
+      "kind": "junction",
+      "center": [77.6693, 12.9969],
+      "radius_m": 600,
+      "peak_windows": [],
+      "typical_delay_min": 12,
+      "variance_min": 7,
+      "junctions": 3,
+      "stop_prone": 3,
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "orr-bellandur",
+      "name": "Outer Ring Road, Bellandur stretch",
+      "kind": "corridor",
+      "line": [
+        [77.644, 12.9255],
+        [77.661, 12.9245],
+        [77.6783, 12.9265],
+        [77.6966, 12.9363]
+      ],
+      "radius_m": 350,
+      "peak_windows": [
+        ["08:30", "11:00"],
+        ["17:00", "21:30"]
+      ],
+      "typical_delay_min": 14,
+      "variance_min": 9,
+      "junctions": 4,
+      "stop_prone": 4,
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "sarjapur-road",
+      "name": "Sarjapur Road",
+      "kind": "corridor",
+      "line": [
+        [77.645, 12.923],
+        [77.661, 12.92],
+        [77.685, 12.9095],
+        [77.706, 12.9063]
+      ],
+      "radius_m": 300,
+      "peak_windows": [],
+      "typical_delay_min": 11,
+      "variance_min": 7,
+      "junctions": 4,
+      "stop_prone": 3,
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "old-airport-road",
+      "name": "Old Airport Road",
+      "kind": "corridor",
+      "line": [
+        [77.6387, 12.9611],
+        [77.665, 12.9592],
+        [77.685, 12.9575],
+        [77.7011, 12.9569]
+      ],
+      "radius_m": 300,
+      "peak_windows": [],
+      "typical_delay_min": 9,
+      "variance_min": 5,
+      "junctions": 3,
+      "stop_prone": 2,
+      "last_verified": "2026-10-13"
+    },
+    {
+      "id": "ecity-toll",
+      "name": "Electronic City toll",
+      "kind": "junction",
+      "center": [77.661, 12.8605],
+      "radius_m": 600,
+      "peak_windows": [
+        ["07:30", "10:30"],
+        ["17:30", "20:30"]
+      ],
+      "typical_delay_min": 6,
+      "variance_min": 4,
+      "junctions": 1,
+      "stop_prone": 2,
+      "last_verified": "2026-10-13"
+    }
+  ]
+}
