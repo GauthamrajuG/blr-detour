@@ -15,8 +15,14 @@ export async function planTrip(
   const { route: rp, traffic: tp, mode } = getProviders();
 
   const t0 = Date.now();
-  const routes = await rp.getAlternatives(origin, destination, departure);
-  logProviderCall({ provider: rp.name, kind: "route", ms: Date.now() - t0, ok: true });
+  let routes;
+  try {
+    routes = await rp.getAlternatives(origin, destination, departure);
+    logProviderCall({ provider: rp.name, kind: "route", ms: Date.now() - t0, ok: true });
+  } catch (err) {
+    logProviderCall({ provider: rp.name, kind: "route", ms: Date.now() - t0, ok: false });
+    throw err;
+  }
 
   const candidates = await Promise.all(
     routes.map(async (route) => {

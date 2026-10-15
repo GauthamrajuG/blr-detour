@@ -20,6 +20,12 @@ Each entry: what I decided, why, and what I rejected.
 11. **Peak speeds narrowed across road classes.** First seed values made side roads far slower than main roads at peak. In Bengaluru everything crawls at peak, so I narrowed the gap.
 12. **No Nominatim for autocomplete.** Its usage policy forbids it. Demo uses a gazetteer; live should use Places or Photon.
 
+13. **TomTom first.** Free with no card, blocks rather than bills over the cap, and gives routes plus traffic in one call. Google's policies require its route results to be shown on a Google Map, which would mean replacing our map.
+14. **One env var turns live mode on.** `TOMTOM_API_KEY` alone selects TomTom for routes, traffic, and search. _Rejected:_ making a non-technical owner set three variables.
+15. **One instance serves routes and traffic.** The estimate is captured from the routing response, so a search costs one request, not five.
+16. **Search uses the local list before TomTom.** This protects the 2,500-a-day quota; typing a neighbourhood name costs nothing.
+17. **Live stress includes chokepoint load.** This keeps live and demo scores on one scale. Signals are estimated, and labelled as estimated in docs, until an OSM signal count is added.
+
 ## Front end
 
 13. **Atkinson Hyperlegible Next, self-hosted, one family.** Built for glance legibility, which suits a moving auto. Loaded with `next/font/local` for preload and a metric-matched fallback. _Rejected:_ Inter (banned by the brief), and a display/body pairing (Impeccable's Operate mode says one family).

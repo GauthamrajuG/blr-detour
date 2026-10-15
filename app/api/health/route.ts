@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getProviders } from "@/lib/providers";
+import { getGeocoders, getProviders } from "@/lib/providers";
 import { LAYER_FRESHNESS } from "@/lib/geo/zones";
 
 export const dynamic = "force-dynamic";
@@ -10,7 +10,11 @@ export async function GET() {
   return NextResponse.json({
     ok: true,
     mode: p.mode,
-    providers: { route: p.route.name, traffic: p.traffic.name, geocode: "gazetteer" },
+    providers: {
+      route: p.route.name,
+      traffic: p.traffic.name,
+      geocode: getGeocoders().remote ? "gazetteer+tomtom" : "gazetteer",
+    },
     keys: {
       GOOGLE_MAPS_API_KEY: Boolean(process.env.GOOGLE_MAPS_API_KEY),
       TOMTOM_API_KEY: Boolean(process.env.TOMTOM_API_KEY),

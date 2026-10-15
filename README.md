@@ -13,6 +13,12 @@ npm run dev            # http://localhost:3000, demo mode, no keys needed
 
 Demo mode is automatic when no provider keys are set. A yellow banner says routes are sketched and times are estimates. Every card reads "Estimated, not live".
 
+## Live mode (real traffic)
+
+Add **one** environment variable: `TOMTOM_API_KEY` (free at developer.tomtom.com, no card). Routes, live traffic, real road shapes, turn-by-turn steps, and address search then come from TomTom, the demo banner disappears, and cards say "Live". `/api/health` should show `"mode":"live"`. Details and limits are in `docs/providers.md`.
+
+To check live mode without a key: `node tests/fake-tomtom/server.mjs`, then `TOMTOM_API_KEY=test-key TOMTOM_BASE_URL=http://localhost:4010 npm run dev`.
+
 ## Scripts
 
 | Script                            | What it does                                                                                                                                                  |

@@ -255,6 +255,7 @@ export function DetourApp({ initialMode }: { initialMode: "demo" | "live" }) {
               departure={departure}
               onOrigin={setOrigin}
               onDestination={setDestination}
+              live={mode === "live"}
               onDeparture={setDeparture}
               onSwap={() => {
                 setOrigin(destination);
@@ -345,7 +346,11 @@ export function DetourApp({ initialMode }: { initialMode: "demo" | "live" }) {
             )}
 
             {(status.kind === "ready" || status.kind === "empty") && (
-              <DataFreshness layers={status.data.layers} monsoonActive={monsoonActive} />
+              <DataFreshness
+                layers={status.data.layers}
+                monsoonActive={monsoonActive}
+                live={status.data.mode === "live"}
+              />
             )}
             <p className="sr-only" aria-live="polite" role="status">
               {announce}

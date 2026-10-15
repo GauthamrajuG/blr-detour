@@ -106,7 +106,15 @@ export function DemoBanner() {
   );
 }
 
-export function DataFreshness({ layers, monsoonActive }: { layers: RoutesResponse["layers"]; monsoonActive: boolean }) {
+export function DataFreshness({
+  layers,
+  monsoonActive,
+  live,
+}: {
+  layers: RoutesResponse["layers"];
+  monsoonActive: boolean;
+  live: boolean;
+}) {
   const name = { zones: en.freshness.zones, construction: en.freshness.construction, flood: en.freshness.flood };
   return (
     <section className="border-t border-rule pt-3 text-sm" aria-labelledby="fresh-h" data-testid="freshness">
@@ -126,6 +134,7 @@ export function DataFreshness({ layers, monsoonActive }: { layers: RoutesRespons
           </div>
         ))}
       </dl>
+      {live && <p className="mt-2 text-ink-soft">{en.freshness.liveSource}</p>}
       <p className="mt-2 text-ink-soft">{en.freshness.noLiveClosures}</p>
 
       <h3 className="mt-3 font-semibold">{en.freshness.legend}</h3>
@@ -149,6 +158,7 @@ export function DataFreshness({ layers, monsoonActive }: { layers: RoutesRespons
           {en.freshness.legendFlood}
         </li>
       </ul>
+      {live && <p className="mt-3 text-xs text-ink-soft">{en.freshness.attribution}</p>}
     </section>
   );
 }

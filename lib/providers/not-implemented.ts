@@ -22,7 +22,5 @@ class Pending implements RouteProvider, TrafficProvider {
 
 export const GoogleRoutesProvider = () =>
   new Pending("google", "Routes API client is planned for Phase 4 (needs GOOGLE_MAPS_API_KEY and billing caps).");
-export const TomTomProvider = () =>
-  new Pending("tomtom", "TomTom Routing client is planned for Phase 4 (needs TOMTOM_API_KEY).");
 export const OsrmProvider = () =>
   new Pending("osrm", "OSRM client is planned for Phase 4 (needs a hosted OSRM instance URL).");

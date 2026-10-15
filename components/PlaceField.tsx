@@ -16,13 +16,14 @@ interface Props {
   /** Optional trailing action, e.g. "Use my location". */
   action?: React.ReactNode;
   testId: string;
+  live?: boolean;
 }
 
 /**
  * ARIA 1.2 combobox with a listbox popup. Arrow keys move, Enter picks, Escape closes.
  * Typing without picking and pressing Enter takes the first suggestion.
  */
-export function PlaceField({ label, placeholder, value, onChange, action, testId }: Props) {
+export function PlaceField({ label, placeholder, value, onChange, action, testId, live = false }: Props) {
   const id = useId();
   const listId = `${id}-list`;
   const [text, setText] = useState(value?.label ?? "");
@@ -58,7 +59,7 @@ export function PlaceField({ label, placeholder, value, onChange, action, testId
       } catch {
         /* Offline: the list stays empty; submitting shows the network error. */
       }
-    }, 120);
+    }, 250);
     return () => clearTimeout(timer);
   }, [text, open, value?.label]);
 
@@ -148,7 +149,7 @@ export function PlaceField({ label, placeholder, value, onChange, action, testId
         >
           {options.length === 0 ? (
             <li className="px-3 py-3 text-sm text-ink-soft" role="presentation">
-              {en.search.noMatches}
+              {live ? en.search.noMatchesLive : en.search.noMatches}
             </li>
           ) : (
             options.map((o, i) => (

@@ -5,6 +5,7 @@ import { checkRateLimit, clientIp, takeProviderCall } from "@/lib/server/limits"
 import { planTrip } from "@/lib/server/plan";
 import { LAYER_FRESHNESS, isMonsoon } from "@/lib/geo/zones";
 import { ProviderNotConfiguredError } from "@/lib/providers/types";
+import { TomTomError } from "@/lib/providers/tomtom";
 
 export const dynamic = "force-dynamic";
 
@@ -61,6 +62,22 @@ export async function POST(req: Request) {
     return NextResponse.json({ ...payload, cached: false } satisfies RoutesResponse);
   } catch (err) {
     if (err instanceof ProviderNotConfiguredError) return fail(503, "provider_not_configured");
+    if (err instanceof TomTomError) {
+      if (err.code === "no_route") {
+        // TomTom answers 400 when the points aren't connected by roads: show the empty state.
+        return NextResponse.json({
+          candidates: [],
+          mode: "live",
+          departureTime: departure.toISOString(),
+          generatedAt: new Date().toISOString(),
+          layers: LAYER_FRESHNESS,
+          monsoonActive: isMonsoon(departure),
+          cached: false,
+        } satisfies RoutesResponse);
+      }
+      console.error(JSON.stringify({ evt: "routes_error", provider: "tomtom", status: err.status, code: err.code }));
+      return fail(err.code === "provider_failed" ? 502 : 503, err.code);
+    }
     console.error(JSON.stringify({ evt: "routes_error", message: String(err) }));
     return fail(502, "provider_failed");
   }

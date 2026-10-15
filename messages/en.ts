@@ -22,6 +22,7 @@ export const en = {
     currentLocation: "Current location",
     clear: "Clear {field}",
     noMatches: "No match in the demo list. Try a neighbourhood like Indiranagar or HSR Layout.",
+    noMatchesLive: "No match in Bengaluru. Try a neighbourhood, landmark, or street name.",
     leaving: "Leaving",
     now: "Now",
     plus30: "In 30 min",
@@ -122,6 +123,10 @@ export const en = {
       outside_bengaluru: "That place is outside Bengaluru. BLR Detour only covers the city for now.",
       rate_limited: "Too many searches in a short time. Wait a minute, then try again.",
       daily_cap_reached: "Route lookups are paused for today to keep costs in check. Try again tomorrow.",
+      provider_auth:
+        "The traffic service rejected this site's key. If you run this site, check TOMTOM_API_KEY in your hosting settings.",
+      provider_quota:
+        "Today's free route lookups are used up. Try again tomorrow, or after midnight Dutch time when TomTom resets the count.",
       provider_not_configured: "The route service isn't set up on this server. Demo mode still works without keys.",
       provider_failed: "The route service didn't respond. Check your connection and try again.",
       departure_in_past: "That departure time has passed. Pick Now or a later time.",
@@ -142,6 +147,8 @@ export const en = {
     floodActive: "Active now (June to October).",
     floodInactive: "Off until June.",
     noLiveClosures: "There is no live closure data. Check local news before you leave.",
+    liveSource: "Routes and live traffic from TomTom. Times are TomTom's estimate; the range around them is ours.",
+    attribution: "© 1992–2026 TomTom. Map data © OpenStreetMap contributors.",
     legend: "Reading the strip",
     legendPeak: "Chokepoint at peak",
     legendQuiet: "Chokepoint, quieter now",

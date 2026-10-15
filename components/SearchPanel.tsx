@@ -19,6 +19,8 @@ interface Props {
   onSubmit: () => void;
   onLocateError: (code: "geolocation_denied" | "geolocation_outside") => void;
   busy: boolean;
+  /** Live search: the empty-results message shouldn't mention the demo list. */
+  live: boolean;
 }
 
 const CHOICES: { id: DepartureChoice; label: string }[] = [
@@ -60,6 +62,7 @@ export function SearchPanel(p: Props) {
       <div className="grid grid-cols-[1fr_auto] items-end gap-x-2 gap-y-2">
         <PlaceField
           testId="origin"
+          live={p.live}
           label={en.search.from}
           placeholder={en.search.fromPlaceholder}
           value={p.origin}
@@ -86,6 +89,7 @@ export function SearchPanel(p: Props) {
         </button>
         <PlaceField
           testId="destination"
+          live={p.live}
           label={en.search.to}
           placeholder={en.search.toPlaceholder}
           value={p.destination}
